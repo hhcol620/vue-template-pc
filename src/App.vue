@@ -4,6 +4,7 @@
     </div>
 </template>
 <script>
+import img from "./assest/images/backImg01.jpg";
 export default {
     name: "App"
 };
