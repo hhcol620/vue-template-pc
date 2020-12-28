@@ -3,6 +3,11 @@ const path = require('path')
 const VueLoaderPlugin = require('vue-loader/lib/plugin')
 
 module.exports = {
+    resolve: {
+        alias: {
+            vue: 'vue/dist/vue.js'
+        }
+    },
     // 打包入口
     entry: path.resolve(__dirname, '../src/main.js'),
     // 打包出口
@@ -16,10 +21,15 @@ module.exports = {
             { test: /\.vue$/, loader: 'vue-loader' },
             {
                 test: /\.(jpg|jpeg|png|svg)$/,
-                loader: 'file-loader',
+                loader: 'url-loader',
                 options: {
-                    name: '[name].[ext]'
+                    name: '[name].[ext]',
+                    limit: 2048
                 }
+            },
+            {
+                test: /\.css$/,
+                use: ['style-loader', 'css-loader']
             }
         ]
     },
