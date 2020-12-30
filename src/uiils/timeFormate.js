@@ -65,22 +65,22 @@ const calendarList = (time) => {
   let nDay = new Date(`${year}-${month}-01`).getDay();
   // 这个月最后一天应该是几号
   let lastDay = daysList[month - 1];
-  let resArray = [];
-  for (let i = 0; i < nDay; i++) {
-    if (!resArray[0]) {
-      resArray[0] = ['-'];
-    } else {
-      resArray[0].push('-');
-    }
+  // 假设日历表可以在下面二维数组中  后面针对没有被填充数字的进行删除
+  let resArray = [
+    ['-', '-', '-', '-', '-', '-', '-'],
+    ['-', '-', '-', '-', '-', '-', '-'],
+    ['-', '-', '-', '-', '-', '-', '-'],
+    ['-', '-', '-', '-', '-', '-', '-'],
+    ['-', '-', '-', '-', '-', '-', '-'],
+    ['-', '-', '-', '-', '-', '-', '-']
+  ];
+  let i = 0;
+  while (i < lastDay) {
+    resArray[Math.floor((nDay + i) / 7)][(nDay + i) % 7] = ++i;
   }
-  for (let i = 1, j = 0; i <= lastDay; i++) {
-    if (resArray[j].length === 7) {
-      resArray[++j] = [i];
-    } else {
-      resArray[j].push(i);
-    }
+  while (resArray[resArray.length - 1].every((item) => item === '-')) {
+    resArray.pop();
   }
-
   return resArray;
 };
 
