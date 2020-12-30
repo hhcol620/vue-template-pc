@@ -7,7 +7,7 @@
 </template>
 <script>
 import img from "./assest/images/backImg01.jpg";
-import "./assest/style/global.css";
+import "./styles/global.css";
 export default {
     name: "App"
 };
