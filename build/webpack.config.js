@@ -1,9 +1,10 @@
 const path = require('path');
+const webpack = require('webpack');
+
 // 引入vue-loader插件
 const VueLoaderPlugin = require('vue-loader/lib/plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
-const webpack = require('webpack');
 
 module.exports = {
   resolve: {
