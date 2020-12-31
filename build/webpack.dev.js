@@ -13,7 +13,7 @@ module.exports = merge(baseWebpackConfig, {
   devServer: {
     // 自动打开浏览器
     open: true,
-    compress: true,
+    compress: true,   // 启动gzip压缩
     host: '127.0.0.1',
     port: 9090,
     contentBase: path.resolve(__dirname, '../public/index.html'),
