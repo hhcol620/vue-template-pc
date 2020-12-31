@@ -1,10 +1,10 @@
 {
-    "name": "{{name}}",
+    "name": "vue-template",
     "version": "1.0.0",
     "description": "{{description}}",
     "main": "index.js",
     "scripts": {
-        "dev": "webpack-dev-server --config build/webpack.config.js",
+        "dev": "webpack serve --config build/webpack.config.js",
         "build": "webpack --config build/webpack.config.js"
     },
     "repository": {
@@ -13,12 +13,9 @@
     },
     "author": "{{author}}",
     "license": "ISC",
-    "bugs": {
-        "url": "https://github.com/hhcol620/vue-tmplate/issues"
-    },
-    "homepage": "https://github.com/hhcol620/vue-tmplate#readme",
     "devDependencies": {
         "@babel/core": "^7.12.10",
+        "@babel/preset-env": "^7.12.11",
         "autoprefixer": "^10.1.0",
         "babel-loader": "^8.2.2",
         "clean-webpack-plugin": "^3.0.0",

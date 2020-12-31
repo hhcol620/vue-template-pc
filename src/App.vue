@@ -2,7 +2,7 @@
     <div>
         this is a app is created with this <a class="a-text"
            href="https://github.com/hhcol620/create-vue-app">create-vue-app</a>
-        <p>测试热更新 ok111</p>
+        <p>测试热更新 ok1111</p>
     </div>
 </template>
 <script>
