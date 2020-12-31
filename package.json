@@ -1,15 +1,11 @@
 {
-    "name": "vue-template",
+    "name": "vue-template-hh",
     "version": "1.0.0",
     "description": "{{description}}",
     "main": "index.js",
     "scripts": {
-        "dev": "webpack serve --config build/webpack.config.js",
-        "build": "webpack --config build/webpack.config.js"
-    },
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/hhcol620/vue-tmplate.git"
+        "dev": "webpack serve --config build/webpack.dev.js",
+        "build": "webpack --config build/webpack.prod.js"
     },
     "author": "{{author}}",
     "license": "ISC",
@@ -33,6 +29,8 @@
         "webpack-merge": "^4.2.2"
     },
     "dependencies": {
-        "vue": "^2.6.12"
+        "vue": "^2.6.12",
+        "vue-router": "^3.4.9",
+        "vuex": "^3.6.0"
     }
 }

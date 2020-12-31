@@ -1,105 +1,68 @@
-'use strict'
-const path = require('path')
-const utils = require('./utils')
-const config = require('../config')
-const vueLoaderConfig = require('./vue-loader.conf')
-var webpack = require('webpack')
+'use strict';
 
-function resolve(dir) {
-  return path.join(__dirname, '..', dir)
-}
+const path = require('path');
+const webpack = require('webpack');
 
-const createLintingRule = () => ({
-  //   test: /\.(js|vue)$/,
-  //   loader: 'eslint-loader',
-  //   enforce: 'pre',
-  //   include: [resolve('src'), resolve('test')],
-  //   options: {
-  //     formatter: require('eslint-friendly-formatter'),
-  //     emitWarning: !config.dev.showEslintErrorsInOverlay
-  //   }
-})
+// 引入vue-loader插件
+const VueLoaderPlugin = require('vue-loader/lib/plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = {
-  context: path.resolve(__dirname, '../'),
-  entry: {
-    app: './src/main.js'
-  },
-  output: {
-    path: config.build.assetsRoot,
-    filename: '[name].js',
-    publicPath:
-      process.env.NODE_ENV === 'production'
-        ? config.build.assetsPublicPath
-        : config.dev.assetsPublicPath
-  },
   resolve: {
-    extensions: ['.js', '.vue', '.json'],
     alias: {
-      vue$: 'vue/dist/vue.esm.js',
-      '@': resolve('src')
-    }
+      vue: 'vue/dist/vue.esm.js',
+      '@': '../src'
+    },
+    extensions: ['.js', '.vue', '.json', '.less', '.sass', '.css']
   },
+  
+  // 打包入口
+  entry: {
+    main: './src/main.js',
+    vendor: ['vue', 'vue-router', 'vuex']
+  },
+  // 打包出口
+  output: {
+    filename: '[name].js',
+    path: path.resolve(__dirname, '../dist'),
+    chunkFilename: '[name].chunk.js'
+  },
+  // 打包规则
   module: {
     rules: [
-      ...(config.dev.useEslint ? [createLintingRule()] : []),
-      {
-        test: /\.vue$/,
-        loader: 'vue-loader',
-        options: vueLoaderConfig
-      },
       {
         test: /\.js$/,
+        exclude: /node_modules/,
         loader: 'babel-loader',
-        include: [
-          resolve('src'),
-          resolve('test'),
-          resolve('node_modules/webpack-dev-server/client')
-        ]
+        options: {
+          presets: ['@babel/preset-env']
+        }
       },
+      { test: /\.vue$/, loader: 'vue-loader' },
       {
-        test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
+        test: /\.(jpg|jpeg|png|svg)$/,
         loader: 'url-loader',
         options: {
-          limit: 10000,
-          name: utils.assetsPath('img/[name].[hash:7].[ext]')
+          name: '[name].[ext]',
+          limit: 2048
         }
       },
       {
-        test: /\.(mp4|webm|ogg|mp3|wav|flac|aac)(\?.*)?$/,
-        loader: 'url-loader',
-        options: {
-          limit: 10000,
-          name: utils.assetsPath('media/[name].[hash:7].[ext]')
-        }
-      },
-      {
-        test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/,
-        loader: 'url-loader',
-        options: {
-          limit: 10000,
-          name: utils.assetsPath('fonts/[name].[hash:7].[ext]')
-        }
+        test: /\.css$/,
+        use: ['style-loader', 'css-loader', 'postcss-loader']
       }
     ]
   },
-  node: {
-    // prevent webpack from injecting useless setImmediate polyfill because Vue
-    // source contains it (although only uses it if it's native).
-    setImmediate: false,
-    // prevent webpack from injecting mocks to Node native modules
-    // that does not make sense for the client
-    dgram: 'empty',
-    fs: 'empty',
-    net: 'empty',
-    tls: 'empty',
-    child_process: 'empty'
-  },
+  // 插件
   plugins: [
-    new webpack.optimize.CommonsChunkPlugin('common.js'),
-    new webpack.ProvidePlugin({
-      jQuery: 'jquery',
-      $: 'jquery'
-    })
+    new VueLoaderPlugin(),
+    new HtmlWebpackPlugin({
+      template: path.resolve(__dirname, '../public/index.html'),
+      favicon: path.resolve(__dirname, '../public/static/favicon.ico'),
+      inject: true
+    }),
+    new CleanWebpackPlugin(),
+    new webpack.HotModuleReplacementPlugin()
   ]
-}
+};
