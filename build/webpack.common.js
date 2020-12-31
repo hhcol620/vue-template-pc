@@ -7,6 +7,7 @@ const webpack = require('webpack');
 const VueLoaderPlugin = require('vue-loader/lib/plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin');
 
 module.exports = {
   resolve: {
@@ -16,7 +17,7 @@ module.exports = {
     },
     extensions: ['.js', '.vue', '.json', '.less', '.sass', '.css']
   },
-  
+
   // 打包入口
   entry: {
     main: './src/main.js',
@@ -63,6 +64,12 @@ module.exports = {
       inject: true
     }),
     new CleanWebpackPlugin(),
-    new webpack.HotModuleReplacementPlugin()
+    new webpack.HotModuleReplacementPlugin(),
+    new FriendlyErrorsWebpackPlugin({
+      compilationSuccessInfo: {
+        messages: [`Your application is running here:`]
+      },
+      clearConsole: true
+    })
   ]
 };
