@@ -10,7 +10,7 @@ const baseWebpackConfig = require('./webpack.common.js')
 
 module.exports = merge(baseWebpackConfig, {
     mode: 'development',
-    devtool: 'inline-source-map',
+    devtool: 'eval-source-map',
     //  本地开发服务器  文件监控热更新
     devServer: {
         // 自动打开浏览器

@@ -4,6 +4,8 @@ const path = require('path')
 const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const merge = require('webpack-merge')
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer')
+    .BundleAnalyzerPlugin
 
 const baseWebpackConfig = require('./webpack.common.js')
 
@@ -19,6 +21,7 @@ module.exports = merge(baseWebpackConfig, {
                 collapseWhitespace: true, // 压缩空白
                 removeComments: true // 去除注释
             }
-        })
+        }),
+        new BundleAnalyzerPlugin()
     ]
 })

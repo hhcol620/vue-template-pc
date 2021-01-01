@@ -10,11 +10,13 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin')
 const notifier = require('node-notifier')
 
+const utils = require('./utils.js')
+
 module.exports = {
     resolve: {
         alias: {
             vue: 'vue/dist/vue.esm.js',
-            '@': '../src'
+            '@': utils.resolve('src')
         },
         extensions: ['.js', '.vue', '.json', '.less', '.sass', '.css']
     },
