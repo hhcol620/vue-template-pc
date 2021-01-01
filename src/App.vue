@@ -6,15 +6,9 @@
     </div>
 </template>
 <script>
-import img from "./assest/images/backImg01.jpg";
-import "./styles/global.css";
 export default {
     name: "App"
 };
 </script>
 <style scoped>
-.a-text {
-    transform: translate(100px, 0);
-    color: red;
-}
 </style>
