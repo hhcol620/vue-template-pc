@@ -1,13 +1,15 @@
-'use strict'
+'use strict';
 
-const path = require('path')
-const webpack = require('webpack')
-const HtmlWebpackPlugin = require('html-webpack-plugin')
-const merge = require('webpack-merge')
+const path = require('path');
+const webpack = require('webpack');
+const merge = require('webpack-merge');
+
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer')
-    .BundleAnalyzerPlugin
+    .BundleAnalyzerPlugin;
+const TerserPlugin = require('terser-webpack-plugin');
 
-const baseWebpackConfig = require('./webpack.common.js')
+const baseWebpackConfig = require('./webpack.common.js');
 
 module.exports = merge(baseWebpackConfig, {
     mode: 'production',
@@ -23,5 +25,9 @@ module.exports = merge(baseWebpackConfig, {
             }
         }),
         new BundleAnalyzerPlugin()
-    ]
-})
+    ],
+    optimization: {
+        minimize: true,
+        minimizer: [new TerserPlugin()]
+    }
+});

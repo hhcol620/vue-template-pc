@@ -1,16 +1,16 @@
-'use strict'
+'use strict';
 
-const path = require('path')
-const webpack = require('webpack')
+const path = require('path');
+const webpack = require('webpack');
 
 // 引入vue-loader插件
-const VueLoaderPlugin = require('vue-loader/lib/plugin')
+const VueLoaderPlugin = require('vue-loader/lib/plugin');
 
-const { CleanWebpackPlugin } = require('clean-webpack-plugin')
-const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin')
-const notifier = require('node-notifier')
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin');
+const notifier = require('node-notifier');
 
-const utils = require('./utils.js')
+const utils = require('./utils.js');
 
 module.exports = {
     resolve: {
@@ -28,7 +28,7 @@ module.exports = {
     },
     // 打包出口
     output: {
-        filename: '[name].js',
+        filename: '[name].bundle.js',
         path: path.resolve(__dirname, '../dist'),
         chunkFilename: '[name].chunk.js'
     },
@@ -82,4 +82,4 @@ module.exports = {
         new CleanWebpackPlugin(),
         new FriendlyErrorsWebpackPlugin()
     ]
-}
+};
