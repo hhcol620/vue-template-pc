@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div class="header">这是exampleA</div>
+        <div class="header">这是exampleD</div>
         <router-view></router-view>
     </div>
 </template>

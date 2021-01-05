@@ -7,22 +7,22 @@ import testB from './views/test-B/index.vue';
 
 export default [
     {
-        name: '案例A',
-        path: '/exampleA',
+        name: '案例D',
+        path: '/exampleD',
         component: index,
         mata: {
-            title: '案例A'
+            title: '案例D'
         },
-        redirect: '/exampleA/testA',
+        redirect: '/exampleD/testA',
         children: [
             {
-                name: 'EAtestA',
-                path: '/exampleA/testA',
+                name: 'EDtestA',
+                path: '/exampleD/testA',
                 component: testA
             },
             {
-                name: 'EAtestB',
-                path: '/exampleA/testB',
+                name: 'EDtestB',
+                path: '/exampleD/testB',
                 component: testB
             }
         ]
