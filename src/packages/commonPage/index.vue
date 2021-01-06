@@ -43,10 +43,6 @@ export default {
                         {
                             name: "tb",
                             path: "/exampleA/testB"
-                        },
-                        {
-                            name: "tb",
-                            path: "/exampleA/testB"
                         }
                     ]
                 },
