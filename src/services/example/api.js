@@ -1,4 +1,4 @@
-import { request } from '../http.js';
+import { request } from '../interceptors.js';
 
 // let config = {} 这个里面可以传入一些基地址 然后传入下面的方法里面  例如 const API = request(config)
 const API = request();
