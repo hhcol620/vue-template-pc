@@ -8,7 +8,7 @@
 function _getUrlQuery(url = window.location.href) {
     url = decodeURIComponent(url);
     console.log(url);
-    let reg = new RegExp('[&?](\\w)=(\\w*)', 'g');
+    let reg = new RegExp('[&?](\\w+)=(\\w*)', 'g');
     let iterator = url.matchAll(reg);
     let query = {};
     for (let item of iterator) {
