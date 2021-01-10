@@ -1,6 +1,6 @@
 <template>
     <div>
-        这是EB的ta---防抖指令的使用
+        这是EB的ta---防抖(防止用户在一段很短的时间内快速点击按钮给服务器或者是浏览器造成的cpu压力)指令的使用
         <p>
             <button v-debounce="debounceTest"
                     class="test-btn">点击控制台打印文字</button>

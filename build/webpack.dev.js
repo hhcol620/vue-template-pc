@@ -8,6 +8,9 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const baseWebpackConfig = require('./webpack.common.js');
 
+const { _Proxy } = require('./devProxy.js');
+console.log(_Proxy);
+
 module.exports = merge(baseWebpackConfig, {
     mode: 'development',
     devtool: 'eval-source-map',
@@ -20,7 +23,8 @@ module.exports = merge(baseWebpackConfig, {
         port: 9090,
         contentBase: path.resolve(__dirname, '../public/index.html'),
         publicPath: '/',
-        quiet: true
+        quiet: true,
+        proxy: _Proxy
     },
     plugins: [
         new HtmlWebpackPlugin({
