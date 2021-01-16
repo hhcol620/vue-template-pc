@@ -19,7 +19,7 @@ function _debounce(fn, delay = 300, immediately = true) {
 }
 
 /**
- * @params : fn需要节流的函数 delay控制相邻两次的时间间隔最少是 delay ms
+ * @params : fn需要节流的函数 delay控制相邻两次的时间间隔最少是 delay ms   节流参数配置options {}
  * @return :
  * @example : 使用场景 比如滚动事件处理函数
  * @description : 节流 _throttle  在需要连续触发的事件进行稀释  减少cpu 或者是内存的占用
