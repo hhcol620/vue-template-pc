@@ -40,4 +40,21 @@ function _throttle(fn, delay = 300) {
     };
 }
 
-export { _debounce, _throttle };
+/**
+ * @params : num   1243142.092834
+ * @return : num   1,243,142.092834
+ * @description : 千位打点
+ */
+
+function _numFormate(num) {
+    if (!num) return '';
+    let reg = /(\d)(?=(\d{3})+$)/g;
+
+    return num.toString().replace(/\d+/, (n) => {
+        return n.replace(reg, ($1) => {
+            return $1 + ',';
+        });
+    });
+}
+
+export { _debounce, _throttle, _numFormate };

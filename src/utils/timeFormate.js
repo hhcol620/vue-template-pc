@@ -87,4 +87,34 @@ const _calendarList = (time) => {
 // let test = calendarList('2020-12');
 // console.log(test);
 
-export { _timeFormat, _calendarList };
+/**
+ * @params : time 时间戳
+ * @return : 距离入参过去时间
+ * @description :
+ * @date : 2021-01-16 13:32
+ * @author : huanghe
+ */
+
+function _timeAgoFormat(time) {
+    let _now = Date.now() || new Date().getTime(); // 获取当前的时间戳
+    if (_now - parseInt(time) < 0) {
+        // 后端提供的时间戳不合法
+        console.log('传入的时间戳不合法');
+        return '--';
+    }
+    let _seconds = (_now - parseInt(time)) / 1000;
+    let _minutes = Math.floor(_seconds / 60);
+    let _hours = Math.floor(_minutes / 60);
+    let _days = Math.floor(_hours / 24);
+    let _months = Math.floor(_days / 30); //  这里默认将30天视为一个月
+    let _years = Math.floor(_months / 12);
+    let _list = ['年前', '月前', '天前', '小时前', '分钟前', '刚刚']; // 这里做一个映射
+    let _res = '--'; //  默认返回值
+    let _timeList = [_years, _months, _days, _hours, _minutes, _seconds];
+    let _index = _timeList.findIndex((item) => item > 0);
+    _res = _minutes > 0 ? _timeList[_index] + _list[_index] : _list[_index]; // 判断是不足一分钟的情况,直接返回  刚刚
+    return _res;
+}
+// console.log(_timeAgoFormat(1606780800000));
+
+export { _timeFormat, _calendarList, _timeAgoFormat };
