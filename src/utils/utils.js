@@ -36,7 +36,7 @@ function _debounce(fn, delay = 300, immediately = true) {
  * @author : huanghe
  */
 
-function _throttle(fn, delay = 300, options = { leading: false }) {
+function _throttle(fn, delay = 300) {
     //节流
     let lastTime = 0;
     return function(...args) {
