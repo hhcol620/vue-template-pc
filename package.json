@@ -5,7 +5,8 @@
     "main": "index.js",
     "scripts": {
         "dev": "webpack serve --config build/webpack.dev.js",
-        "build": "webpack --config build/webpack.prod.js"
+        "build": "webpack --config build/webpack.prod.js",
+        "create-page": "node template/script.js"
     },
     "author": "{{author}}",
     "license": "ISC",
