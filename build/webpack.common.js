@@ -8,7 +8,6 @@ const VueLoaderPlugin = require('vue-loader/lib/plugin');
 
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin');
-const notifier = require('node-notifier');
 
 const utils = require('./utils.js');
 
@@ -42,6 +41,13 @@ module.exports = {
     plugins: [
         new VueLoaderPlugin(),
         new CleanWebpackPlugin(),
-        new FriendlyErrorsWebpackPlugin()
+        new FriendlyErrorsWebpackPlugin(),
+        new webpack.LoaderOptionsPlugin({
+            minimize: true,
+            debug: false,
+            options: {
+                context: __dirname
+            }
+        })
     ]
 };

@@ -2,7 +2,7 @@
 import Vue from 'vue';
 // 导入router
 import router from '@/router/router-main.js';
-import store from '@/store/index.js'
+import store from '@/store/index.js';
 // 导入app组件
 import App from './App.vue';
 

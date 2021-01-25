@@ -13,11 +13,19 @@
     </div>
 </template>
 <script>
-import navigationBar from "@/packages/commonPage/index.vue";
+import navigationBar from '@/packages/commonPage/index.vue';
 export default {
-    name: "App",
+    name: 'App',
     components: {
-        "navigation-bar": navigationBar
+        'navigation-bar': navigationBar
+    },
+    created() {
+        this.test();
+    },
+    methods: {
+        test() {
+            console.log('./App.vue');
+        }
     }
 };
 </script>

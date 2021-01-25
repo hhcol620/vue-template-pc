@@ -1,4 +1,4 @@
-import { _debounce, _throttle } from '@/utils/utils.js';
+import { _debounce } from '@/utils/utils.js';
 
 /**
  * @description : 自定义指令

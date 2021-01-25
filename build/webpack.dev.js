@@ -3,6 +3,7 @@
 const path = require('path');
 const webpack = require('webpack');
 const merge = require('webpack-merge');
+const ESLintPlugin = require('eslint-webpack-plugin');
 
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
@@ -24,13 +25,20 @@ module.exports = merge(baseWebpackConfig, {
         contentBase: path.resolve(__dirname, '../public/index.html'),
         publicPath: '/',
         quiet: true,
-        proxy: _Proxy
+        proxy: _Proxy,
+        overlay: true
     },
     plugins: [
         new HtmlWebpackPlugin({
             template: path.resolve(__dirname, '../public/index.html'),
             favicon: path.resolve(__dirname, '../public/static/favicon.ico')
         }),
-        new webpack.HotModuleReplacementPlugin()
+        new webpack.HotModuleReplacementPlugin(),
+        new ESLintPlugin({
+            emitWarning: true,
+            emitError: true,
+            failOnWarning: false,
+            failOnError: false
+        })
     ]
 });

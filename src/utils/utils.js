@@ -9,10 +9,8 @@
 
 function _debounce(fn, delay = 300, immediately = true) {
     let timer = null,
-        result,
-        timeStamp = 0;
+        result;
     return function(...args) {
-        timeStamp = Date.now();
         if (timer) clearTimeout(timer);
         if (!timer && immediately) {
             result = fn.apply(this, args);

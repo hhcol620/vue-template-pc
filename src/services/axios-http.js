@@ -6,11 +6,11 @@ const initConfig = {
     baseUrl: '/'
 };
 
-const headers = {
-    _formData: {
-        'content-type': 'application/x-www-form-urlencoded'
-    }
-};
+// const headers = {
+//     _formData: {
+//         'content-type': 'application/x-www-form-urlencoded'
+//     }
+// };
 
 //过滤请求   请求拦截器
 axios.interceptors.request.use(
