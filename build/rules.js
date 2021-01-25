@@ -2,14 +2,25 @@ const rules = [
     {
         test: /\.js$/,
         exclude: /node_modules/,
-        loader: 'babel-loader',
-        options: {
-            presets: ['@babel/preset-env'],
-            plugins: [
-                '@babel/plugin-transform-runtime',
-                '@babel/plugin-transform-regenerator'
-            ]
-        }
+        use: [
+            {
+                loader: 'thread-loader',
+                options: {
+                    workers: 4 //设置进程数量
+                }
+            },
+            {
+                loader: 'babel-loader',
+                options: {
+                    presets: ['@babel/preset-env'],
+                    plugins: [
+                        '@babel/plugin-transform-runtime',
+                        '@babel/plugin-transform-regenerator'
+                    ],
+                    cacheDirectory: true
+                }
+            }
+        ]
     },
     { test: /\.vue$/, loader: 'vue-loader' },
     {
