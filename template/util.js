@@ -27,7 +27,7 @@ const readRouterConfig = function() {
     );
     // console.log(routesJson);
     fs.writeFileSync(
-        path.resolve(__dirname, '../router.json'),
+        path.resolve(__dirname, '../page_router.json'),
         JSON.stringify(routesJson, null, 4)
     );
 };
