@@ -1,14 +1,12 @@
 <template>
 <div>
-    <div class="header">这是${name}页面</div>
-    <div class="desc">${description}</div>
-    <router-view></router-view>
+    <div class="desc">这是内嵌的页面</div>
 </div>
 </template>
 
 <script>
+import { _exampleAPI } from '../../server/test/api.js';
 export default {
-    name:'${name}',
     data() {
         return {};
     }    
