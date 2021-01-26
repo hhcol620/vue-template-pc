@@ -3,10 +3,12 @@
 const path = require('path');
 const fs = require('fs');
 const inquirer = require('inquirer');
-const logSymbols = require('log-symbols');
 const chalk = require('chalk');
 const ora = require('ora');
 const program = require('commander');
+const logSymbols = require('log-symbols');
+
+const { readRouterConfig } = require('./util.js');
 
 /**
  * @param {*} fromFilePath 源文件路径
@@ -41,20 +43,6 @@ const mkdirsSync = function(dirpath) {
         }
     }
 };
-
-/**
- * desc  读取项目的路由配置 并写入到router.json
- */
-const readRouterConfig = function() {};
-
-// writeFile(
-//     path.resolve(__dirname, 'package/template-index.md'),
-//     path.resolve(__dirname, 'package/template-test.vue'),
-//     {
-//         name: 'zhangsan',
-//         desc: '描述'
-//     }
-// );
 
 /**
  * 下面是交互命令
@@ -113,8 +101,14 @@ program.action(() => {
                 path.resolve(deepPathServer, './api.js'),
                 answers
             );
-            spinner.succeed(chalk.green('create successed'));
-            //
+            readRouterConfig(); // 重新获取路由的配置
+            spinner.succeed(chalk.green('create page successed!'));
+            console.log(
+                logSymbols.success,
+                chalk.green(
+                    `you can look the new page in 'baseurl${answers.router}'`
+                )
+            );
         } else {
             spinner.fail(
                 chalk.red(

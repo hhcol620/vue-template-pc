@@ -1,13 +1,17 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
-
-import exampleA from '@/packages/exampleA/router.js';
-import exampleB from '@/packages/exampleB/router.js';
-import exampleC from '@/packages/exampleC/router.js';
-import exampleD from '@/packages/exampleD/router.js';
+import util from './util.js';
+const _routes = [];
+const context = require.context('../packages/', true, /router.js/);
+context.keys().forEach((filename) => {
+    // 将获取的route配置展开压入数组里面
+    _routes.push(...context(filename).default);
+});
+if (process.env.NODE_ENV !== 'production') {
+    util.createRoutesJson(_routes);
+}
 
 Vue.use(VueRouter, {});
-
 export default new VueRouter({
     mode: 'hash',
     base: '/',
@@ -16,9 +20,6 @@ export default new VueRouter({
             path: '/',
             redirect: '/exampleA'
         },
-        ...exampleA,
-        ...exampleB,
-        ...exampleC,
-        ...exampleD
+        ..._routes
     ]
 });

@@ -1,0 +1,115 @@
+{
+    "G:/vue-template-pc/src/packages/exampleA/router.js": [
+        {
+            "name": "案例A",
+            "path": "/exampleA",
+            "component": "index",
+            "mata": {
+                "title": "案例A"
+            },
+            "redirect": "/exampleA/testA",
+            "children": [
+                {
+                    "name": "EAtestA",
+                    "path": "/exampleA/testA",
+                    "component": "testA"
+                },
+                {
+                    "name": "EAtestB",
+                    "path": "/exampleA/testB",
+                    "component": "testB"
+                }
+            ]
+        }
+    ],
+    "G:/vue-template-pc/src/packages/exampleB/router.js": [
+        {
+            "name": "案例B",
+            "path": "/exampleB",
+            "component": "index",
+            "mata": {
+                "title": "案例B"
+            },
+            "redirect": "/exampleB/testA",
+            "children": [
+                {
+                    "name": "EBtestA",
+                    "path": "/exampleB/testA",
+                    "component": "testA"
+                },
+                {
+                    "name": "EBtestB",
+                    "path": "/exampleB/testB",
+                    "component": "testB"
+                }
+            ]
+        }
+    ],
+    "G:/vue-template-pc/src/packages/exampleC/router.js": [
+        {
+            "name": "案例C",
+            "path": "/exampleC",
+            "component": "index",
+            "mata": {
+                "title": "案例C"
+            },
+            "redirect": "/exampleC/testA",
+            "children": [
+                {
+                    "name": "ECtestA",
+                    "path": "/exampleC/testA",
+                    "component": "testA"
+                },
+                {
+                    "name": "ECtestB",
+                    "path": "/exampleC/testB",
+                    "component": "testB"
+                }
+            ]
+        }
+    ],
+    "G:/vue-template-pc/src/packages/exampleD/router.js": [
+        {
+            "name": "案例D",
+            "path": "/exampleD",
+            "component": "index",
+            "mata": {
+                "title": "案例D"
+            },
+            "redirect": "/exampleD/testA",
+            "children": [
+                {
+                    "name": "EDtestA",
+                    "path": "/exampleD/testA",
+                    "component": "testA"
+                },
+                {
+                    "name": "EDtestB",
+                    "path": "/exampleD/testB",
+                    "component": "testB"
+                }
+            ]
+        }
+    ],
+    "G:/vue-template-pc/src/packages/test/router.js": [
+        {
+            "name": "test",
+            "path": "/dashboard/index",
+            "component": "index",
+            "mata": {
+                "title": "Example-out",
+                "content": {
+                    "description": "ceshi"
+                }
+            },
+            "redirect": "/dashboard/index/testA",
+            "children": [
+                {
+                    "name": "Example-insert",
+                    "path": "/dashboard/index/testA",
+                    "component": "testA"
+                }
+            ]
+        }
+    ]
+}
