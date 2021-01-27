@@ -1,20 +1,57 @@
 <template>
-    <div>
-        this is a app is created with this <a class="a-text"
-           href="https://github.com/hhcol620/create-vue-app">create-vue-app</a>
-        <p>测试热更新-----测试--</p>
+    <div class="main-container">
+        <div class="box">
+            <p class="app-desc">
+                This is a app is created with this <a class="a-text"
+                   href="https://github.com/hhcol620/create-vue-app">create-vue-app</a>
+            </p>
+            <navigation-bar></navigation-bar>
+            <div class="router-container">
+                <router-view></router-view>
+            </div>
+        </div>
     </div>
 </template>
 <script>
-import img from "./assest/images/backImg01.jpg";
-import "./styles/global.css";
+import navigationBar from '@/packages/commonPage/index.vue';
 export default {
-    name: "App"
+    name: 'App',
+    components: {
+        'navigation-bar': navigationBar
+    },
+    created() {
+        this.test();
+    },
+    methods: {
+        test() {
+            console.log('./App.vue');
+        }
+    }
 };
 </script>
 <style scoped>
-.a-text {
-    transform: translate(100px, 0);
-    color: red;
+.main-container {
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+}
+.box {
+    height: 100%;
+    text-align: center;
+    margin-top: 20px;
+}
+.app-desc {
+    font-size: 18px;
+    color: #4d4d4d;
+    font-weight: 500;
+    font-style: normal;
+    line-height: 30px;
+    text-transform: uppercase;
+}
+.app-desc > a {
+    color: #27ae60;
+}
+.router-container {
+    margin-top: 20px;
 }
 </style>
