@@ -1,6 +1,13 @@
 # vue-template-pc
 vue脚手架-模板
 
+### 启动方式:
+
+* 将项目拉到本地,安装依赖(npm i); 建议装上yarn 和 nrm
+* 开发环境启动项目  npm run dev
+* 项目打包npm run build
+* 项目指令化创建页面 npm run create-page
+
 
 
 2020/1/8 防抖 | 节流 指令和函数 和使用参考
