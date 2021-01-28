@@ -1,5 +1,5 @@
 {
-    "G:/vue-template-pc/src/packages/exampleA/router.js": [
+    "@/packages/exampleA/router.js": [
         {
             "name": "案例A",
             "path": "/exampleA",
@@ -22,7 +22,7 @@
             ]
         }
     ],
-    "G:/vue-template-pc/src/packages/exampleB/router.js": [
+    "@/packages/exampleB/router.js": [
         {
             "name": "案例B",
             "path": "/exampleB",
@@ -45,7 +45,7 @@
             ]
         }
     ],
-    "G:/vue-template-pc/src/packages/exampleC/router.js": [
+    "@/packages/exampleC/router.js": [
         {
             "name": "案例C",
             "path": "/exampleC",
@@ -68,7 +68,7 @@
             ]
         }
     ],
-    "G:/vue-template-pc/src/packages/exampleD/router.js": [
+    "@/packages/exampleD/router.js": [
         {
             "name": "案例D",
             "path": "/exampleD",
@@ -91,7 +91,7 @@
             ]
         }
     ],
-    "G:/vue-template-pc/src/packages/test/router.js": [
+    "@/packages/test/router.js": [
         {
             "name": "test",
             "path": "/dashboard/index",
@@ -99,7 +99,7 @@
             "mata": {
                 "title": "Example-out",
                 "content": {
-                    "description": "ceshi"
+                    "description": "测试"
                 }
             },
             "redirect": "/dashboard/index/testA",
