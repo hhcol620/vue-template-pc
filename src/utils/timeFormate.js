@@ -10,19 +10,21 @@ const _timeFormat = (time, type) => {
     let dateObj = new Date(Number(time));
     let year = dateObj.getFullYear();
     let month =
-        dateObj.getMonth() + 1 > 10
+        dateObj.getMonth() + 1 >= 10
             ? dateObj.getMonth() + 1
             : '0' + (dateObj.getMonth() + 1);
     let day =
-        dateObj.getDate() > 10 ? dateObj.getDate() : '0' + dateObj.getDate();
+        dateObj.getDate() >= 10 ? dateObj.getDate() : '0' + dateObj.getDate();
     let hour =
-        dateObj.getHours() > 10 ? dateObj.getHours() : '0' + dateObj.getHours();
+        dateObj.getHours() >= 10
+            ? dateObj.getHours()
+            : '0' + dateObj.getHours();
     let minutes =
-        dateObj.getMinutes() > 10
+        dateObj.getMinutes() >= 10
             ? dateObj.getMinutes()
             : '0' + dateObj.getMinutes();
     let seconds =
-        dateObj.getSeconds() > 10
+        dateObj.getSeconds() >= 10
             ? dateObj.getSeconds()
             : '0' + dateObj.getSeconds();
     //  YY-MM-DD hh-mm-ss
