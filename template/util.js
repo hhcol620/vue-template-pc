@@ -1,7 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 const glob = require('glob');
-const routesJson = {};
+const routesJson = {}; //   保存着所有的路由解析出来的对象
 const readRouterConfig = function() {
     glob.sync(path.resolve(__dirname, '../src/packages/*/router.js')).forEach(
         (filePath) => {
@@ -22,9 +22,15 @@ const readRouterConfig = function() {
                 .match(/\[[\w\W]+\]/g)[0];
 
             // console.log(str);
-            routesJson[filePath] = JSON.parse(str);
+            routesJson[filePath.replace(/[\w\W]+(?:src)/, '@')] = JSON.parse(
+                str
+            );
         }
     );
+
+    /**
+     * 如果需要修改或者是自定义page_router.json文件  可以在这个位置定义修改函数 routesJson
+     */
     // console.log(routesJson);
     fs.writeFileSync(
         path.resolve(__dirname, '../page_router.json'),
