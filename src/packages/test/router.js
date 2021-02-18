@@ -7,19 +7,19 @@ import testA from './views/test/index.vue';
 export default [
     {
         name: 'test',
-        path: '/dashboard/index',
+        path: '/dashborad/test',
         component: index,
         mata: {
             title: 'Example-out',
             content:{
-                description:'测试'
+                description:'测试页面'
             }
         },
-        redirect: '/dashboard/index/testA',
+        redirect: '/dashborad/test/testA',
         children: [
             {
                 name: 'Example-insert',
-                path: '/dashboard/index/testA',
+                path: '/dashborad/test/testA',
                 component: testA
             }
         ]

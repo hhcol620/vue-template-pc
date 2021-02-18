@@ -87,20 +87,22 @@ program.action(() => {
                 `${filePath}/index.vue`,
                 answers
             );
-            let deepPathViews = path.join(filePath, '/views/test');
+            let deepPathViews = path.join(filePath, `/views/${answers.name}`);
             mkdirsSync(deepPathViews);
             writeFile(
                 path.resolve(__dirname, './package/template-insert.md'),
                 path.resolve(deepPathViews, './index.vue'),
                 answers
             );
-            let deepPathServer = path.join(filePath, `/server/${answers.name}`);
+            let deepPathServer = path.join(filePath, '/server');
             mkdirsSync(deepPathServer);
             writeFile(
                 path.resolve(__dirname, './server/api.md'),
                 path.resolve(deepPathServer, './api.js'),
                 answers
             );
+            let componentsPath = path.join(filePath, '/components');
+            mkdirsSync(componentsPath);
             readRouterConfig(); // 重新获取路由的配置
             spinner.succeed(chalk.green('create page successed!'));
             console.log(
