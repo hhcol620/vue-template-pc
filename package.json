@@ -9,6 +9,7 @@
         "create-page": "node template/script.js"
     },
     "author": "{{author}}",
+    "cssExpand": "{{cssExpand}}",
     "license": "ISC",
     "devDependencies": {
         "@babel/core": "^7.12.10",
