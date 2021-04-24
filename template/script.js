@@ -44,6 +44,13 @@ const mkdirsSync = function(dirpath) {
     }
 };
 
+const getcssExpand = function() {
+    let packageFilePath = path.resolve(__dirname, '../package.json');
+    let cssExpand = require(packageFilePath).cssExpand;
+    console.log(cssExpand);
+    return cssExpand;
+};
+
 /**
  * 下面是交互命令
  * 获取开发者的输入的创建页面名字  作为文件夹名字
@@ -68,6 +75,8 @@ const questionList = [
 program.action(() => {
     inquirer.prompt(questionList).then((answers) => {
         console.log(answers);
+        let meta = JSON.parse(JSON.stringify(answers));
+        meta.cssExpand = getcssExpand();
         const spinner = ora();
         spinner.start('create start...\n');
         let filePath = path.resolve(
@@ -80,27 +89,29 @@ program.action(() => {
             writeFile(
                 path.resolve(__dirname, './package/router.md'),
                 `${filePath}/router.js`,
-                answers
+                meta
             );
             writeFile(
                 path.resolve(__dirname, './package/template-index.md'),
                 `${filePath}/index.vue`,
-                answers
+                meta
             );
-            let deepPathViews = path.join(filePath, '/views/test');
+            let deepPathViews = path.join(filePath, `/views/${answers.name}`);
             mkdirsSync(deepPathViews);
             writeFile(
                 path.resolve(__dirname, './package/template-insert.md'),
                 path.resolve(deepPathViews, './index.vue'),
-                answers
+                meta
             );
-            let deepPathServer = path.join(filePath, `/server/${answers.name}`);
+            let deepPathServer = path.join(filePath, '/server');
             mkdirsSync(deepPathServer);
             writeFile(
                 path.resolve(__dirname, './server/api.md'),
                 path.resolve(deepPathServer, './api.js'),
-                answers
+                meta
             );
+            let componentsPath = path.join(filePath, '/components');
+            mkdirsSync(componentsPath);
             readRouterConfig(); // 重新获取路由的配置
             spinner.succeed(chalk.green('create page successed!'));
             console.log(

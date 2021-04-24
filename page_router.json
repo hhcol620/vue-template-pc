@@ -94,19 +94,19 @@
     "@/packages/test/router.js": [
         {
             "name": "test",
-            "path": "/dashboard/index",
+            "path": "/home/index",
             "component": "index",
             "mata": {
                 "title": "Example-out",
                 "content": {
-                    "description": "测试"
+                    "description": ""
                 }
             },
-            "redirect": "/dashboard/index/testA",
+            "redirect": "/home/index/testA",
             "children": [
                 {
                     "name": "Example-insert",
-                    "path": "/dashboard/index/testA",
+                    "path": "/home/index/testA",
                     "component": "testA"
                 }
             ]

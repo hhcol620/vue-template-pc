@@ -7,7 +7,7 @@ import store from '@/store/index.js';
 import App from './App.vue';
 
 // 导入global全局样式
-import './styles/global.less';
+import './styles/global';
 
 // 创建vue根实例
 new Vue({

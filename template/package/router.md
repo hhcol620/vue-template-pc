@@ -2,7 +2,7 @@
 import index from './index.vue';
 
 // 导入不同的组件
-import testA from './views/test/index.vue';
+import testA from './views/${name}/index.vue';
 
 export default [
     {
