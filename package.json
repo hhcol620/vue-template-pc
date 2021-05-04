@@ -11,6 +11,13 @@
     "author": "{{author}}",
     "cssExpand": "{{cssExpand}}",
     "license": "ISC",
+    "browserslist": [
+        "last 2 version",
+        "> 1%",
+        "iOS >= 7",
+        "Android > 4.1",
+        "Firefox > 20"
+    ],
     "devDependencies": {
         "@babel/core": "^7.12.10",
         "@babel/preset-env": "^7.12.11",
@@ -22,7 +29,6 @@
         "css-loader": "^5.0.1",
         "eslint": "^7.18.0",
         "eslint-friendly-formatter": "^4.0.1",
-        "eslint-loader": "^4.0.2",
         "eslint-plugin-vue": "^7.5.0",
         "eslint-webpack-plugin": "^2.4.3",
         "file-loader": "^6.2.0",
@@ -36,6 +42,7 @@
         "node-notifier": "^9.0.0",
         "node-sass": "^5.0.0",
         "ora": "^5.3.0",
+        "postcss": "^8.2.2",
         "postcss-loader": "^4.1.0",
         "sass-loader": "^10.1.0",
         "style-loader": "^2.0.0",
