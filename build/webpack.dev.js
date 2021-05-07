@@ -15,6 +15,7 @@ console.log(_Proxy);
 module.exports = merge(baseWebpackConfig, {
     mode: 'development',
     devtool: 'eval-source-map',
+    target: 'web',
     //  本地开发服务器  文件监控热更新
     devServer: {
         // 自动打开浏览器

@@ -5,7 +5,7 @@ const path = require('path');
 // 引入vue-loader插件
 const VueLoaderPlugin = require('vue-loader/lib/plugin');
 
-const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+
 const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin');
 
 const utils = require('./utils.js');
@@ -39,7 +39,6 @@ module.exports = {
     // 插件
     plugins: [
         new VueLoaderPlugin(),
-        new CleanWebpackPlugin(),
         new FriendlyErrorsWebpackPlugin()
     ]
 };
