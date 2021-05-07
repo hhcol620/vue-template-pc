@@ -5,7 +5,6 @@ const path = require('path');
 // 引入vue-loader插件
 const VueLoaderPlugin = require('vue-loader/lib/plugin');
 
-
 const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin');
 
 const utils = require('./utils.js');
@@ -23,7 +22,7 @@ module.exports = {
 
     // 打包入口
     entry: {
-        main: './src/main.js',
+        main: path.resolve(__dirname, '../src/main.js'),
         vendor: ['vue', 'vue-router', 'vuex']
     },
     // 打包出口
@@ -37,8 +36,5 @@ module.exports = {
         rules
     },
     // 插件
-    plugins: [
-        new VueLoaderPlugin(),
-        new FriendlyErrorsWebpackPlugin()
-    ]
+    plugins: [new VueLoaderPlugin(), new FriendlyErrorsWebpackPlugin()]
 };
