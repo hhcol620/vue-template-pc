@@ -19,75 +19,75 @@
 
 <script>
 export default {
-    name: "navigation-bar",
+    name: 'navigation-bar',
     data() {
         return {
             navigationList: [
                 {
-                    name: "ExampleA",
-                    path: "/exampleA",
-                    subHighLight: "/exampleA/.",
+                    name: 'ExampleA',
+                    path: '/exampleA',
+                    subHighLight: '/exampleA/.',
                     children: [
                         {
-                            name: "ta",
-                            path: "/exampleA/testA"
+                            name: 'ta',
+                            path: '/exampleA/testA'
                         },
                         {
-                            name: "tb",
-                            path: "/exampleA/testB"
+                            name: 'tb',
+                            path: '/exampleA/testB'
                         },
                         {
-                            name: "tb",
-                            path: "/exampleA/testB"
+                            name: 'tb',
+                            path: '/exampleA/testB'
                         },
                         {
-                            name: "tb",
-                            path: "/exampleA/testB"
+                            name: 'tb',
+                            path: '/exampleA/testB'
                         }
                     ]
                 },
                 {
-                    name: "ExampleB",
-                    path: "/exampleB",
-                    subHighLight: "/exampleB/.",
+                    name: 'ExampleB',
+                    path: '/exampleB',
+                    subHighLight: '/exampleB/.',
                     children: [
                         {
-                            name: "ta",
-                            path: "/exampleB/testA"
+                            name: 'ta',
+                            path: '/exampleB/testA'
                         },
                         {
-                            name: "tb",
-                            path: "/exampleB/testB"
+                            name: 'tb',
+                            path: '/exampleB/testB'
                         }
                     ]
                 },
                 {
-                    name: "ExampleC",
-                    path: "/exampleC",
-                    subHighLight: "/exampleC/.",
+                    name: 'ExampleC',
+                    path: '/exampleC',
+                    subHighLight: '/exampleC/.',
                     children: [
                         {
-                            name: "ta",
-                            path: "/exampleC/testA"
+                            name: 'ta',
+                            path: '/exampleC/testA'
                         },
                         {
-                            name: "tb",
-                            path: "/exampleC/testB"
+                            name: 'tb',
+                            path: '/exampleC/testB'
                         }
                     ]
                 },
                 {
-                    name: "ExampleD",
-                    path: "/exampleD",
-                    subHighLight: "/exampleD/.",
+                    name: 'ExampleD',
+                    path: '/exampleD',
+                    subHighLight: '/exampleD/.',
                     children: [
                         {
-                            name: "ta",
-                            path: "/exampleD/testA"
+                            name: 'ta',
+                            path: '/exampleD/testA'
                         },
                         {
-                            name: "tb",
-                            path: "/exampleD/testB"
+                            name: 'tb',
+                            path: '/exampleD/testB'
                         }
                     ]
                 }

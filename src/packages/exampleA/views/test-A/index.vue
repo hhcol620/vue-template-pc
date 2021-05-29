@@ -1,16 +1,16 @@
 <template>
     <div>
         这是EA的ta-----获取url的参数工具
-        <p>当前url地址的query为<span class="query-text">{{queryString}}</span></p>
+        <p>当前url地址query为<span class="query-text">{{queryString}}</span></p>
     </div>
 </template>
 
 <script>
-import { _getUrlQuery } from "@/utils/getUrlQuery.js";
+import { _getUrlQuery } from '@/utils/getUrlQuery.js';
 export default {
     data() {
         return {
-            queryString: ""
+            queryString: ''
         };
     },
     created() {},

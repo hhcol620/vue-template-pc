@@ -15,18 +15,20 @@ console.log(_Proxy);
 module.exports = merge(baseWebpackConfig, {
     mode: 'development',
     devtool: 'eval-source-map',
+    target: 'web',
     //  本地开发服务器  文件监控热更新
     devServer: {
         // 自动打开浏览器
         open: true,
-        compress: true, // 启动gzip压缩
         host: '127.0.0.1',
-        port: 9090,
-        contentBase: path.resolve(__dirname, '../public/index.html'),
+        port: 3000,
+        contentBase: path.resolve(__dirname, '../dist'),
         publicPath: '/',
         quiet: true,
         proxy: _Proxy,
-        overlay: true
+        overlay: true,
+        hot: true,
+        compress: true
     },
     plugins: [
         new HtmlWebpackPlugin({
@@ -40,5 +42,8 @@ module.exports = merge(baseWebpackConfig, {
             failOnWarning: false,
             failOnError: false
         })
-    ]
+    ],
+    optimization: {
+        runtimeChunk: 'single'
+    }
 });

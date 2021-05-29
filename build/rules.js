@@ -42,6 +42,13 @@ const rules = [
     {
         test: /\.(scss|sass)$/,
         use: ['style-loader', 'css-loader', 'postcss-loader', 'sass-loader']
+    },
+    {
+        test: /\.(woff|woff2|eot|ttf|otf)$/i,
+        loader: 'file-loader',
+        options: {
+            esModule: false
+        }
     }
 ];
 
