@@ -1,16 +1,16 @@
 <template>
     <div>
         这是EB的tb----针对axios封装的使用
-        <p class="result-text">请求返回的数据是 -- {{data}}</p>
+        <p class="result-text">请求返回的数据是 -- {{ infoData }}</p>
     </div>
 </template>
 
 <script>
-import { _exampleAPI } from "../../services/exampleB/api.js";
+import { _exampleAPI } from '../../services/exampleB/api.js';
 export default {
     data() {
         return {
-            data: ""
+            infoData: ''
         };
     },
     created() {
@@ -20,11 +20,11 @@ export default {
         async initResponseData() {
             const res = await _exampleAPI();
             if (res.code !== 200) {
-                console.log("请求出错了");
+                console.log('请求出错了');
             }
-            this.data = res.data;
+            this.infoData = JSON.stringify(res.data);
             console.log(
-                "请求完成,返回数据是-------" + JSON.stringify(this.data)
+                '请求完成,返回数据是-------' + JSON.stringify(res.data)
             );
         }
     }
