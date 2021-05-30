@@ -117,7 +117,7 @@ program.action(() => {
             console.log(
                 logSymbols.success,
                 chalk.green(
-                    `you can look the new page in 'baseurl${answers.router}'`
+                    `you can look the new page in baseurl:port'${answers.router}'`
                 )
             );
         } else {
